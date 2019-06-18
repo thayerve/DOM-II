@@ -1,25 +1,53 @@
 
-// on document load, ...
+// on document load, add background gradient. On press zero key, remove background.
+
+let header = document.querySelector('header');
+
+window.addEventListener('load', event => {
+    header.style.background = 'linear-gradient(#FFEBCD, white)';
+})
 
 // when click nav link, change background color to #C0C0C0, and preventDefault (so page doesn't refresh)
 
 let nav = document.querySelector('header nav');
 let navLinks = Array.from(document.querySelectorAll('.nav-link'));
-console.log(navLinks);
 
 navLinks.forEach((link) => {
     link.addEventListener('click', event => {
         event.preventDefault();
         console.log('prevented default!');
+        event.target.style.background = '#C0C0C0';
     });
 });
         
 
-// when scroll header img, set border-radius to 50%
+// when focus header img, change opacity
+
+// let intro = document.querySelector('.intro');
+// let headerImg = document.querySelector('.intro > img');
+
+// intro.addEventListener('scroll', event => {
+//     event.target.style.opacity = '0.3';
+//     console.log(`i'm trying to change opacity!`);
+// })
+
+//// !! This ^ doesn't work -- 
 
 
 
-// when keydown on document, set background color to background-color: #17A2B8. cancel on keyup
+// when keydown spacebar on document, set background color to background-color: #17A2B8 (less variable @eastern-blue). cancel on keyup
+
+window.addEventListener('keydown', event => {
+    if(event.key == 'b'){
+        document.body.style.background = '#17A2B8';
+    }
+})
+
+window.addEventListener('keyup', event => {
+    if(event.key == 'b'){
+        document.body.style.background = null;
+    }
+})
 
 
 
@@ -32,7 +60,7 @@ destImg.addEventListener('mouseleave', (event) => { event.target.style.borderRad
 
 // click any div in class .content-pick, add border: color #FFEBCD, size 2px, dashed
 
-
+// {event.target.style.border = '2px dashed #FFEBCD';}
 
 
 // when click on Island Getaway (.destination:lastChild?), alert some Kokomo lyrics
